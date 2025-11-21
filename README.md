@@ -1,0 +1,2 @@
+# Advanced-Time-Series-Forecasting-with-Deep-Learning-and-Uncertainty-Quantification
+This project requires students to design and evaluate an advanced deep learning model for time-series forecasting, emphasizing calibrated uncertainty estimation. Using real or simulated datasets, students must implement state-of-the-art sequence models, validate probabilistic forecasts, and deliver high-quality code, analysis, and documentation.
