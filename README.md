@@ -1,2 +1,26 @@
-# Advanced-Time-Series-Forecasting-with-Deep-Learning-and-Uncertainty-Quantification
-This project requires students to design and evaluate an advanced deep learning model for time-series forecasting, emphasizing calibrated uncertainty estimation. Using real or simulated datasets, students must implement state-of-the-art sequence models, validate probabilistic forecasts, and deliver high-quality code, analysis, and documentation.
+
+# Advanced Time Series Forecasting — Full Solution
+
+**Contents**:
+- `data_simulation.py` — creates a high-fidelity synthetic dataset (heteroscedastic + regime changes).
+- `model.py` — Transformer-based sequence model that outputs mean and log-variance (heteroscedastic Gaussian).
+- `train.py` — training loop with logging, checkpointing, and scheduler.
+- `evaluate.py` — computes RMSE, MAE, NLL, 95% coverage, and CRPS (analytic for Gaussian).
+- `utils.py` — data loaders and helper functions.
+- `requirements.txt` — pin of primary packages.
+- `notebooks/` — lightweight Jupyter notebook starter for experimentation.
+- `assets/` — includes the screenshot provided by the user for reference.
+- `LICENSE` — MIT.
+
+**How to run** (example):
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python data_simulation.py --out ./data/synthetic.npz
+python train.py --data ./data/synthetic.npz --epochs 5 --save_dir ./checkpoints
+python evaluate.py --ckpt ./checkpoints/best.pth --data ./data/synthetic.npz
+```
+
+This repository implements probabilistic forecasting using a heteroscedastic Gaussian NLL loss (model predicts mean and log-variance).
+The solution includes quantitative evaluation of calibration via interval coverage and CRPS.
